@@ -1,0 +1,2 @@
+# rivalscheat
+Rivals script
