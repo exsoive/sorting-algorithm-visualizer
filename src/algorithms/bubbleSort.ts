@@ -1,7 +1,7 @@
 import { SortStep, ElementState } from '../types';
 
 export function* bubbleSort(array: number[]): Generator<SortStep> {
-  const arr = array.map((value, index) => ({
+  const arr = array.map((value) => ({
     value,
     state: ElementState.DEFAULT,
   }));

@@ -13,6 +13,7 @@ import { gnomeSort } from '../algorithms/gnomeSort';
 import { countingSort } from '../algorithms/countingSort';
 import { radixSort } from '../algorithms/radixSort';
 import { bucketSort } from '../algorithms/bucketSort';
+import { audioManager } from '../utils/audioManager';
 
 interface UseSortingVisualizerProps {
   arraySize: number;
@@ -99,18 +100,51 @@ export function useSortingVisualizer({ arraySize, speed }: UseSortingVisualizerP
         if (result.done) {
           setIsRunning(false);
           generatorRef.current = null;
+          // Play completion sound
+          audioManager.playCompletionSound();
           return;
         }
 
         const step = result.value;
         setArray(step.array);
 
+        // Get max value for audio frequency mapping
+        const maxValue = Math.max(...step.array.map(el => el.value));
+
         if (step.comparingIndices) {
           setComparisons((prev) => prev + 1);
+
+          // Play comparison sound
+          if (step.comparingIndices.length >= 2) {
+            const val1 = step.array[step.comparingIndices[0]]?.value || 0;
+            const val2 = step.array[step.comparingIndices[1]]?.value || 0;
+            audioManager.playCompareSound(val1, val2, maxValue);
+          }
         }
 
         if (step.swappingIndices) {
           setSwaps((prev) => prev + 1);
+
+          // Play swap sound
+          if (step.swappingIndices.length >= 2) {
+            const val1 = step.array[step.swappingIndices[0]]?.value || 0;
+            const val2 = step.array[step.swappingIndices[1]]?.value || 0;
+            audioManager.playSwapSound(val1, val2, maxValue);
+          }
+        }
+
+        if (step.pivotIndex !== undefined) {
+          // Play pivot sound
+          const pivotVal = step.array[step.pivotIndex]?.value || 0;
+          audioManager.playPivotSound(pivotVal, maxValue);
+        }
+
+        if (step.sortedIndices && step.sortedIndices.length > 0) {
+          // Play sorted sound for newly sorted elements
+          step.sortedIndices.forEach(idx => {
+            const val = step.array[idx]?.value || 0;
+            audioManager.playSortedSound(val, maxValue);
+          });
         }
 
         lastStepTimeRef.current = timestamp;
@@ -172,6 +206,7 @@ export function useSortingVisualizer({ arraySize, speed }: UseSortingVisualizerP
     generatorRef.current = null;
     setIsRunning(false);
     setIsPaused(false);
+    audioManager.stopAllSounds(); // Stop any playing sounds
     generateArray();
   }, [generateArray]);
 

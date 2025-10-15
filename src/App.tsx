@@ -3,11 +3,13 @@ import Visualizer from './components/Visualizer';
 import AlgorithmInfo from './components/AlgorithmInfo';
 import { useSortingVisualizer } from './hooks/useSortingVisualizer';
 import { SortAlgorithm } from './types';
+import { audioManager } from './utils/audioManager';
 
 function App() {
   const [arraySize, setArraySize] = useState(50);
   const [speed, setSpeed] = useState(10);
   const [selectedAlgorithm, setSelectedAlgorithm] = useState<SortAlgorithm>('bubble');
+  const [soundEnabled, setSoundEnabled] = useState(false);
 
   const {
     array,
@@ -23,6 +25,12 @@ function App() {
 
   const handleStart = () => {
     startSorting(selectedAlgorithm);
+  };
+
+  const toggleSound = () => {
+    const newState = !soundEnabled;
+    setSoundEnabled(newState);
+    audioManager.setEnabled(newState);
   };
 
   return (
@@ -151,6 +159,26 @@ function App() {
               onChange={(e) => setSpeed(Number(e.target.value))}
               className="w-full h-2 bg-gray-700 rounded-lg appearance-none cursor-pointer"
             />
+          </div>
+
+          {/* Sound Control */}
+          <div className="bg-gray-800 rounded-lg p-6">
+            <div className="flex items-center justify-between">
+              <div>
+                <h2 className="text-lg font-semibold mb-1">Sound Effects</h2>
+                <p className="text-sm text-gray-400">Retro modem-style audio synchronized with sorting</p>
+              </div>
+              <button
+                onClick={toggleSound}
+                className={`px-6 py-3 rounded-lg font-medium transition-colors ${
+                  soundEnabled
+                    ? 'bg-green-600 hover:bg-green-700'
+                    : 'bg-gray-700 hover:bg-gray-600'
+                }`}
+              >
+                {soundEnabled ? '🔊 ON' : '🔇 OFF'}
+              </button>
+            </div>
           </div>
 
           {/* Statistics */}
