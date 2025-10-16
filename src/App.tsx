@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import Visualizer from './components/Visualizer';
 import AlgorithmInfo from './components/AlgorithmInfo';
+import ThemeToggle from './components/ThemeToggle';
 import { useSortingVisualizer } from './hooks/useSortingVisualizer';
 import { SortAlgorithm } from './types';
 import { audioManager } from './utils/audioManager';
@@ -34,7 +35,8 @@ function App() {
   };
 
   return (
-    <div className="min-h-screen bg-gray-900 text-white">
+    <div className="min-h-screen bg-white dark:bg-gray-900 text-gray-900 dark:text-white transition-colors">
+      <ThemeToggle />
       <div className="container mx-auto px-4 py-8">
         <h1 className="text-4xl font-bold text-center mb-8">
           Sorting Algorithm Visualizer
@@ -81,12 +83,12 @@ function App() {
         {/* Controls */}
         <div className="max-w-4xl mx-auto space-y-6">
           {/* Algorithm Selection */}
-          <div className="bg-gray-800 rounded-lg p-6">
-            <label className="block text-sm font-medium mb-4">Select Algorithm</label>
+          <div className="bg-white dark:bg-gray-800 rounded-lg p-6 shadow-lg dark:shadow-none">
+            <label className="block text-sm font-medium mb-4 text-gray-900 dark:text-white">Select Algorithm</label>
 
             {/* Comparison Sorts */}
             <div className="mb-4">
-              <p className="text-xs text-gray-400 mb-2 uppercase tracking-wide">Comparison-Based Sorts</p>
+              <p className="text-xs text-gray-500 dark:text-gray-400 mb-2 uppercase tracking-wide">Comparison-Based Sorts</p>
               <div className="grid grid-cols-3 gap-2">
                 {(['bubble', 'selection', 'insertion', 'cocktail', 'shell', 'comb', 'gnome', 'quick', 'merge', 'heap'] as SortAlgorithm[]).map((algo) => (
                   <button
@@ -96,7 +98,7 @@ function App() {
                     className={`px-3 py-2 rounded-lg font-medium transition-colors text-sm ${
                       selectedAlgorithm === algo
                         ? 'bg-blue-600 text-white'
-                        : 'bg-gray-700 text-gray-300 hover:bg-gray-600'
+                        : 'bg-gray-200 dark:bg-gray-700 text-gray-900 dark:text-gray-300 hover:bg-gray-300 dark:hover:bg-gray-600'
                     } disabled:opacity-50 disabled:cursor-not-allowed`}
                   >
                     {algo.charAt(0).toUpperCase() + algo.slice(1)}
@@ -107,7 +109,7 @@ function App() {
 
             {/* Non-Comparison Sorts */}
             <div>
-              <p className="text-xs text-gray-400 mb-2 uppercase tracking-wide">Non-Comparison Sorts</p>
+              <p className="text-xs text-gray-500 dark:text-gray-400 mb-2 uppercase tracking-wide">Non-Comparison Sorts</p>
               <div className="grid grid-cols-3 gap-2">
                 {(['counting', 'radix', 'bucket'] as SortAlgorithm[]).map((algo) => (
                   <button
@@ -117,7 +119,7 @@ function App() {
                     className={`px-3 py-2 rounded-lg font-medium transition-colors text-sm ${
                       selectedAlgorithm === algo
                         ? 'bg-purple-600 text-white'
-                        : 'bg-gray-700 text-gray-300 hover:bg-gray-600'
+                        : 'bg-gray-200 dark:bg-gray-700 text-gray-900 dark:text-gray-300 hover:bg-gray-300 dark:hover:bg-gray-600'
                     } disabled:opacity-50 disabled:cursor-not-allowed`}
                   >
                     {algo.charAt(0).toUpperCase() + algo.slice(1)}
@@ -131,8 +133,8 @@ function App() {
           <AlgorithmInfo algorithm={selectedAlgorithm} />
 
           {/* Array Size */}
-          <div className="bg-gray-800 rounded-lg p-6">
-            <label className="block text-sm font-medium mb-3">
+          <div className="bg-white dark:bg-gray-800 rounded-lg p-6 shadow-lg dark:shadow-none">
+            <label className="block text-sm font-medium mb-3 text-gray-900 dark:text-white">
               Array Size: {arraySize}
             </label>
             <input
@@ -142,13 +144,13 @@ function App() {
               value={arraySize}
               onChange={(e) => setArraySize(Number(e.target.value))}
               disabled={isRunning}
-              className="w-full h-2 bg-gray-700 rounded-lg appearance-none cursor-pointer disabled:opacity-50 disabled:cursor-not-allowed"
+              className="w-full h-2 bg-gray-300 dark:bg-gray-700 rounded-lg appearance-none cursor-pointer disabled:opacity-50 disabled:cursor-not-allowed"
             />
           </div>
 
           {/* Speed Control */}
-          <div className="bg-gray-800 rounded-lg p-6">
-            <label className="block text-sm font-medium mb-3">
+          <div className="bg-white dark:bg-gray-800 rounded-lg p-6 shadow-lg dark:shadow-none">
+            <label className="block text-sm font-medium mb-3 text-gray-900 dark:text-white">
               Speed: {speed}x
             </label>
             <input
@@ -157,23 +159,23 @@ function App() {
               max="200"
               value={speed}
               onChange={(e) => setSpeed(Number(e.target.value))}
-              className="w-full h-2 bg-gray-700 rounded-lg appearance-none cursor-pointer"
+              className="w-full h-2 bg-gray-300 dark:bg-gray-700 rounded-lg appearance-none cursor-pointer"
             />
           </div>
 
           {/* Sound Control */}
-          <div className="bg-gray-800 rounded-lg p-6">
+          <div className="bg-white dark:bg-gray-800 rounded-lg p-6 shadow-lg dark:shadow-none">
             <div className="flex items-center justify-between">
               <div>
-                <h2 className="text-lg font-semibold mb-1">Sound Effects</h2>
-                <p className="text-sm text-gray-400">Retro modem-style audio synchronized with sorting</p>
+                <h2 className="text-lg font-semibold mb-1 text-gray-900 dark:text-white">Sound Effects</h2>
+                <p className="text-sm text-gray-600 dark:text-gray-400">Retro modem-style audio synchronized with sorting</p>
               </div>
               <button
                 onClick={toggleSound}
                 className={`px-6 py-3 rounded-lg font-medium transition-colors ${
                   soundEnabled
-                    ? 'bg-green-600 hover:bg-green-700'
-                    : 'bg-gray-700 hover:bg-gray-600'
+                    ? 'bg-green-600 hover:bg-green-700 text-white'
+                    : 'bg-gray-300 dark:bg-gray-700 hover:bg-gray-400 dark:hover:bg-gray-600 text-gray-900 dark:text-white'
                 }`}
               >
                 {soundEnabled ? '🔊 ON' : '🔇 OFF'}
@@ -182,43 +184,43 @@ function App() {
           </div>
 
           {/* Statistics */}
-          <div className="bg-gray-800 rounded-lg p-6">
-            <h2 className="text-xl font-semibold mb-4">Statistics</h2>
+          <div className="bg-white dark:bg-gray-800 rounded-lg p-6 shadow-lg dark:shadow-none">
+            <h2 className="text-xl font-semibold mb-4 text-gray-900 dark:text-white">Statistics</h2>
             <div className="grid grid-cols-2 gap-4">
               <div>
-                <p className="text-gray-400 text-sm">Comparisons</p>
-                <p className="text-2xl font-bold">{comparisons}</p>
+                <p className="text-gray-600 dark:text-gray-400 text-sm">Comparisons</p>
+                <p className="text-2xl font-bold text-gray-900 dark:text-white">{comparisons}</p>
               </div>
               <div>
-                <p className="text-gray-400 text-sm">Swaps</p>
-                <p className="text-2xl font-bold">{swaps}</p>
+                <p className="text-gray-600 dark:text-gray-400 text-sm">Swaps</p>
+                <p className="text-2xl font-bold text-gray-900 dark:text-white">{swaps}</p>
               </div>
             </div>
           </div>
 
           {/* Color Legend */}
-          <div className="bg-gray-800 rounded-lg p-6">
-            <h2 className="text-xl font-semibold mb-4">Color Legend</h2>
+          <div className="bg-white dark:bg-gray-800 rounded-lg p-6 shadow-lg dark:shadow-none">
+            <h2 className="text-xl font-semibold mb-4 text-gray-900 dark:text-white">Color Legend</h2>
             <div className="flex flex-wrap gap-4">
               <div className="flex items-center gap-2">
                 <div className="w-6 h-6 bg-blue-500 rounded"></div>
-                <span className="text-sm">Default</span>
+                <span className="text-sm text-gray-900 dark:text-white">Default</span>
               </div>
               <div className="flex items-center gap-2">
                 <div className="w-6 h-6 bg-yellow-400 rounded"></div>
-                <span className="text-sm">Comparing</span>
+                <span className="text-sm text-gray-900 dark:text-white">Comparing</span>
               </div>
               <div className="flex items-center gap-2">
                 <div className="w-6 h-6 bg-red-500 rounded"></div>
-                <span className="text-sm">Swapping</span>
+                <span className="text-sm text-gray-900 dark:text-white">Swapping</span>
               </div>
               <div className="flex items-center gap-2">
                 <div className="w-6 h-6 bg-purple-500 rounded"></div>
-                <span className="text-sm">Pivot</span>
+                <span className="text-sm text-gray-900 dark:text-white">Pivot</span>
               </div>
               <div className="flex items-center gap-2">
                 <div className="w-6 h-6 bg-green-500 rounded"></div>
-                <span className="text-sm">Sorted</span>
+                <span className="text-sm text-gray-900 dark:text-white">Sorted</span>
               </div>
             </div>
           </div>
