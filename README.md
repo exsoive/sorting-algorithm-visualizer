@@ -41,6 +41,7 @@ An interactive web-based application that visualizes how different sorting algor
 - Statistics tracking (comparisons & swaps)
 - Categorized algorithm selection (Comparison vs Non-Comparison)
 - **Retro 56k modem-style sound effects** synchronized with sorting operations
+- **Dark/Light theme toggle** with smooth transitions and persistent preference
 
 ### Audio Features
 - **Web Audio API** integration for real-time sound generation
@@ -52,6 +53,14 @@ An interactive web-based application that visualizes how different sorting algor
   - Sorted confirmations (triangle waves)
   - Completion melody (ascending musical scale)
 - Toggle ON/OFF control for sound effects
+
+### Theme Features
+- **Light and Dark modes** for comfortable viewing in any environment
+- **Persistent preference** saved to localStorage
+- **System preference detection** on first visit
+- **Smooth transitions** between themes
+- **Theme-aware color palette** throughout the entire UI
+- **Fixed toggle button** in top-right corner for easy access
 
 ### Educational Content
 - Comprehensive algorithm descriptions
@@ -120,7 +129,10 @@ sort-graph/
 │   │   └── bucketSort.ts
 │   ├── components/          # React components
 │   │   ├── Visualizer.tsx   # Main visualization component
-│   │   └── AlgorithmInfo.tsx # Algorithm information display
+│   │   ├── AlgorithmInfo.tsx # Algorithm information display
+│   │   └── ThemeToggle.tsx  # Theme toggle button
+│   ├── contexts/
+│   │   └── ThemeContext.tsx # Theme context and provider
 │   ├── hooks/
 │   │   └── useSortingVisualizer.ts # Custom hook for state management
 │   ├── types/
@@ -169,14 +181,15 @@ The application uses `requestAnimationFrame` for smooth animations:
 
 ## Usage
 
-1. **Select an Algorithm** - Choose from 13 different sorting algorithms (10 comparison-based, 3 non-comparison)
-2. **Adjust Array Size** - Use the slider to set array size (5-200 elements)
-3. **Set Speed** - Control animation speed (1x-200x)
-4. **Enable Sound** - Toggle the sound effects ON/OFF for audio feedback
-5. **Generate New Array** - Click "New Array" to randomize values
-6. **Start Sorting** - Press "Start" to begin the visualization
-7. **Pause/Resume** - Pause the animation at any time and resume exactly where you left off
-8. **Reset** - Generate a new array and reset statistics
+1. **Toggle Theme** - Click the sun/moon icon in the top-right corner to switch between light and dark modes
+2. **Select an Algorithm** - Choose from 13 different sorting algorithms (10 comparison-based, 3 non-comparison)
+3. **Adjust Array Size** - Use the slider to set array size (5-200 elements)
+4. **Set Speed** - Control animation speed (1x-200x)
+5. **Enable Sound** - Toggle the sound effects ON/OFF for audio feedback
+6. **Generate New Array** - Click "New Array" to randomize values
+7. **Start Sorting** - Press "Start" to begin the visualization
+8. **Pause/Resume** - Pause the animation at any time and resume exactly where you left off
+9. **Reset** - Generate a new array and reset statistics
 
 ## Algorithm Complexities
 
@@ -210,9 +223,9 @@ The application uses `requestAnimationFrame` for smooth animations:
 - [ ] Custom array input
 - [ ] Step-by-step mode with next/previous buttons
 - [ ] Export visualization as GIF/video
-- [x] ~~Sound effects synchronized with operations~~ ✅ **Implemented!**
+- [x] Sound effects synchronized with operations - Implemented
+- [x] Dark/Light theme toggle - Implemented
 - [ ] Mobile-responsive design improvements
-- [ ] Dark/Light theme toggle
 - [ ] Comparison mode (run two algorithms side-by-side)
 - [ ] Performance benchmarking
 - [ ] Volume control slider for audio
